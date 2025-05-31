@@ -1,8 +1,6 @@
 import { View, Text, Image, SafeAreaView, StyleSheet } from "react-native";
-import Stat from "./Stat";
-import theme from "../theme";
 import RepositoryHeader from "./RepositoryHeader";
-import HeaderStats from "./HeaderStats";
+import RepositoryStats from "./RepositoryStats";
 
 const RepositoryItem = ({
   fullname,
@@ -13,16 +11,28 @@ const RepositoryItem = ({
   ratingAverage,
   reviewCount,
   ownerAvatarUrl,
+}: {
+  fullname: string;
+  description: string;
+  language: string;
+  forksCount: number;
+  stargazersCount: number;
+  ratingAverage: number;
+  reviewCount: number;
+  ownerAvatarUrl: string;
 }) => {
   return (
-    <View style={styles.card}>
+    <View
+      className="p-5 mx-4 my-2 bg-white rounded-lg shadow-lg shadow-gray-300"
+      style={{ elevation: 10 }}
+    >
       <RepositoryHeader
         ownerAvatarUrl={ownerAvatarUrl}
         fullname={fullname}
         description={description}
         language={language}
       />
-      <HeaderStats
+      <RepositoryStats
         stargazersCount={stargazersCount}
         forksCount={forksCount}
         reviewCount={reviewCount}
@@ -31,19 +41,5 @@ const RepositoryItem = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#fff",
-    padding: 15,
-    marginBottom: 10,
-    borderRadius: 6,
-    elevation: 3, // for Android shadow
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 }, // for iOS shadow
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-  }
-});
 
 export default RepositoryItem;
