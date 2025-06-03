@@ -1,7 +1,0 @@
-//Just hit Ctrl + Shift + P and run Typescript: Restart TS Server
-{
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true
-  }
-}
